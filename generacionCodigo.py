@@ -23,14 +23,14 @@ if x==1:
         if i =="*" or i=="/":
             #STRING TEMPORAL CERO
             # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
-            temporalCero = "t0 = " + p[suma-1] + " " +  p[suma]+ " " + p[suma+1]  #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES 
+            temporalCero = "t0 = " + p[suma-1] +  p[suma]+ p[suma+1]  #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES 
             p.remove(p[suma-1])
     suma2 = -1
     temporalUno = ""
     for i in p:
         suma2 +=1
         if i == "+" or i == "-": # SUMA O RESTA
-            temporalUno = "t1 = " + p[suma2-1] + " " +  p[suma2]+ " " + p[suma+1] + "t0"
+            temporalUno = "t1 ="+p[suma2-1]+ p[suma2] +" t0"
             p.remove(p[suma2-1])
     print(temporalCero)
     print(temporalUno)
