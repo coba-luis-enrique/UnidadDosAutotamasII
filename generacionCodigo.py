@@ -23,17 +23,23 @@ if x==1:
         if i =="*" or i=="/":
             #STRING TEMPORAL CERO
             # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
-            temporalCero = "t0 = " + p[suma-1] +  p[suma]+ p[suma+1]  #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES 
-            p.remove(p[suma-1])
-    suma2 = -1
+            temporalCero = "_t0 = " + p[suma-1] + " " +  p[suma] + " " + p[suma+1]  #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES
+            p.remove(p[suma]) # SE ELIMINA "*"
+            p.remove(p[suma-1]) #SE ELIMINA EL "5"
+            p.remove(p[suma-1]) #SE ELIMINA EL "Y"
+            #QUE P = [X,=,2,+]
+
     temporalUno = ""
     for i in p:
-        suma2 +=1
-        if i == "+" or i == "-": # SUMA O RESTA
-            temporalUno = "t1 ="+p[suma2-1]+ p[suma2] +" t0"
-            p.remove(p[suma2-1])
+        if i == "+" or i == "-": # SUMA O RESTA 
+            if p[-1] == "+" or "-":
+                temporalUno = "_t1 ="+ p[2] + " "+ p[3] + " " +"_t0"
+                
+            else:
+                temporalUno = "_t1 = "+ p[3] + " "+ p[2] + " " +"_t0"
     print(temporalCero)
     print(temporalUno)
+
 
 
 
