@@ -3,7 +3,7 @@ import re
 print("UNIDAD DOS AUTOMATAS")
 print("GENERACION DE CODIGO INTERMEDIO")
 print("CASO 1: EJEMPLO  X = 2 + 5 * y") #EXPRESIONES INVALIDAS X= 2 - 5 + Y ó X = 2 * 5 / Y
-print("CASO 2: EJEMPLO  X = a / a + b * b")
+print("CASO 2: EJEMPLO  X = a / a + b * b") #EXPRESIONES INVALIDAS SERIAN LAS QUE NO SEAN DE MULTIPLICACION
 print("CASO 3: EJEMPLO  X= (a+ 2) / 3 + b")
 print("CASO 4: EJEMPLO  X = (a+ 2) / (3 - b)")
 x=int(input("Seleccione una opcion"))
@@ -51,31 +51,23 @@ elif x==2:
     temporalCero = ""
     for i in p: # MULTIPLICACION O DIVISION
         suma +=1
-        if i =="*":
+        if i =="*" or i == "/":
             #STRING TEMPORAL CERO
             # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
             temporalCero = "_t0 = " + p[suma-1] + " " +  p[suma] + " " + p[suma+1]  #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES
-            p.remove(p[suma]) # SE ELIMINA "*"
-            p.remove(p[suma])
-            p.remove(p[suma-1])
             #QUE P = [X,=,a,a,+,b,-,b]
+        
     print(p)
-    print (p[5])
+   
     temporalUno = ""
     for i in p:
-        if p[5] == "+": 
-            temporalUno = "_t1 ="+ p[2] + " "+ p[3] + " " + p[4]    
-        elif p[5] != "+" or "-":
-            print(p)    
-            print("mundo")        
-            temporalUno = "_t1 = "+ p[3] + " "+ p[4] + " " + p[5]
+        
+        if p[7] == "+" or p[7] == "-" : 
+            temporalUno = "_t1 ="+ p[6] + " "+ p[7] + " " + p[8]    
+        else:    
+            temporalUno = "_t1 = "+ p[2] + " "+ p[3] + " " + p[4]
     
-    temporalDos = ""
-    for i in p:
-        if p[5] == "+" or "-": 
-            temporalUno = "_t1 ="+ p[2] + " "+ p[3] + " " + p[4]    
-        elif p[5] != "+" or "-":            
-            temporalUno = "_t1 = "+ p[3] + " "+ p[4] + " " + p[5]
+
 
     print(temporalCero)
     print(temporalUno)    
