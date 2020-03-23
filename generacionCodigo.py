@@ -66,11 +66,10 @@ elif x==2:
             temporalUno = "_t1 ="+ p[6] + " "+ p[7] + " " + p[8]    
         else:    
             temporalUno = "_t1 = "+ p[2] + " "+ p[3] + " " + p[4]
-    
-
 
     print(temporalCero)
     print(temporalUno)    
+    print("_t2=",temporalCero[0:3],p[5],temporalUno[0:3])
     
 
 
