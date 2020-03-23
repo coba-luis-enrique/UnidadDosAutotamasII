@@ -40,7 +40,46 @@ if x==1:
     print(temporalCero)
     print(temporalUno)
 
+elif x==2:
+    p = []
+    vs = []
+    valor =str(input("ingrese la expresion \n"))
+    suma = -1
+    for i in valor:
+        if i != " ":
+            p.append(i)
+    temporalCero = ""
+    for i in p: # MULTIPLICACION O DIVISION
+        suma +=1
+        if i =="*":
+            #STRING TEMPORAL CERO
+            # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
+            temporalCero = "_t0 = " + p[suma-1] + " " +  p[suma] + " " + p[suma+1]  #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES
+            p.remove(p[suma]) # SE ELIMINA "*"
+            p.remove(p[suma])
+            p.remove(p[suma-1])
+            #QUE P = [X,=,a,a,+,b,-,b]
+    print(p)
+    print (p[5])
+    temporalUno = ""
+    for i in p:
+        if p[5] == "+": 
+            temporalUno = "_t1 ="+ p[2] + " "+ p[3] + " " + p[4]    
+        elif p[5] != "+" or "-":
+            print(p)    
+            print("mundo")        
+            temporalUno = "_t1 = "+ p[3] + " "+ p[4] + " " + p[5]
+    
+    temporalDos = ""
+    for i in p:
+        if p[5] == "+" or "-": 
+            temporalUno = "_t1 ="+ p[2] + " "+ p[3] + " " + p[4]    
+        elif p[5] != "+" or "-":            
+            temporalUno = "_t1 = "+ p[3] + " "+ p[4] + " " + p[5]
 
+    print(temporalCero)
+    print(temporalUno)    
+    
 
 
 
