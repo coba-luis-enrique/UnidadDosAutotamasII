@@ -88,7 +88,6 @@ elif x==3:
             temporalCero = "_t0 = " + p[suma-4] + " " +  p[suma-3] + " " + p[suma-2] + " " + p[suma-1] + " " + p[suma]
             #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES
     temporalUno = ""
-    print(p[2])
     for i in p:
         if i == "*" or i == "/": # SUMA O RESTA 
             if p[2] == "(" :
@@ -96,10 +95,19 @@ elif x==3:
                 temporalUno = "_t1 ="+ " _t0 " + p[suma-3] + " " +  p[suma-2] + " " 
             else:
                 print("mundo")
-                temporalUno = "_t1 =" + p[suma-6] + " " +  p[suma-5] + " " +  "_t0"
-    print(p)
+                temporalUno = "_t1 = " + p[suma-6] + " " +  p[suma-5] + " " +  "_t0"
+    temporalDos = ""
+    for i in p:
+        if i == "+" or i == "-": # SUMA O RESTA 
+            if p[2] == "(" :
+                print("hola")
+                temporalDos = "_t2="+ " _t1 " + p[suma-1] + " " +  p[suma] + " " 
+            else:
+                print("mundo")
+                temporalDos = "_t2 = " + p[suma-8] + " " +  p[suma-7] + " " +  "_t1"
     print(temporalCero)
     print(temporalUno)
+    print(temporalDos)
    
    
 
