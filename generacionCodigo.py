@@ -38,7 +38,7 @@ if x==1:
     temporalUno = ""
     for i in p:
         if i == "+" or i == "-": # SUMA O RESTA 
-            if p[-1] == "+" or "-":
+            if p[-1] == "+" or p[-1]=="-":
                 temporalUno = "_t1 ="+ p[2] + " "+ p[3] + " " +"_t0"
                 
             else:
