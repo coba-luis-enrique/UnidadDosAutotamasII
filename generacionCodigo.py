@@ -2,6 +2,7 @@ import re
 
 print("UNIDAD DOS AUTOMATAS")
 print("GENERACION DE CODIGO INTERMEDIO")
+print("SOLO ACEPTA VALORES DE UN SOLO DIGITO O CARACTER..... SON LISTAS.")
 print("CASO 1: EJEMPLO  2 + 5 * y") 
 print("CASO 2: EJEMPLO  a / a + b * b") 
 print("CASO 3: EJEMPLO  (a+ 2) / 3 + b")
@@ -136,7 +137,6 @@ elif x==3:
                 temporalUno = "_t1 ="+ " _t0 " + p[suma-5] + " " +  p[suma-6] + " " 
             else:
                 temporalUno = "_t1 = " + p[suma-2] + " " +  p[suma-3] + " " +  "_t0"
-    print(p)
     #================================================================================================
     temporalDos = ""
     for i in p:
