@@ -57,7 +57,6 @@ elif x==2:
             temporalCero = "_t0 = " + p[suma-1] + " " +  p[suma] + " " + p[suma+1]  #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES
             #QUE P = [X,=,a,a,+,b,-,b]
         
-    print(p)
    
     temporalUno = ""
     for i in p:
@@ -86,24 +85,19 @@ elif x==3:
             #STRING TEMPORAL CERO
             # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
             temporalCero = "_t0 = " + p[suma-4] + " " +  p[suma-3] + " " + p[suma-2] + " " + p[suma-1] + " " + p[suma]
-            #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES
     temporalUno = ""
     for i in p:
-        if i == "*" or i == "/": # SUMA O RESTA 
+        if i == "*" or i == "/":
             if p[2] == "(" :
-                print("hola")
                 temporalUno = "_t1 ="+ " _t0 " + p[suma-3] + " " +  p[suma-2] + " " 
             else:
-                print("mundo")
                 temporalUno = "_t1 = " + p[suma-6] + " " +  p[suma-5] + " " +  "_t0"
     temporalDos = ""
     for i in p:
         if i == "+" or i == "-": # SUMA O RESTA 
             if p[2] == "(" :
-                print("hola")
                 temporalDos = "_t2="+ " _t1 " + p[suma-1] + " " +  p[suma] + " " 
             else:
-                print("mundo")
                 temporalDos = "_t2 = " + p[suma-8] + " " +  p[suma-7] + " " +  "_t1"
     print(temporalCero)
     print(temporalUno)
