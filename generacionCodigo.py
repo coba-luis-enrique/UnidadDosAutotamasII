@@ -71,8 +71,27 @@ elif x==2:
     print(temporalUno)    
     print("_t2=",temporalCero[0:3],p[5],temporalUno[0:3])
     
-
-
+elif x==3:
+    p = []
+    vs = []
+    valor =str(input("ingrese la expresion \n"))
+    suma = -1
+    for i in valor:
+        if i != " ":
+            p.append(i)
+    temporalCero = ""
+    for i in p: # MULTIPLICACION O DIVISION
+        suma +=1
+        if i =="(" or i == ")":
+            #STRING TEMPORAL CERO
+            # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
+            temporalCero = "_t0 = " + p[suma-4] + " " +  p[suma-3] + " " + p[suma-2] + " " + p[suma-1] + " " + p[suma]
+            #LA LISTA P VAN DESGLOZANDO LA EXPRESION EN PARTES
+            #QUE P = [X,=,a,a,+,b,-,b]
+    print(p)
+    print(temporalCero)
+   
+   
 
 
 
