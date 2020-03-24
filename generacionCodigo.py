@@ -108,7 +108,7 @@ elif x==2:
                 temporalDos = "_t2 = " + temporalCero[0:3] + " " +  p[suma-1] + " " + temporalUno[0:3]  
             elif p[suma+1]  != "/" or p[suma+1] !="*":
                 if p[suma+1] == "+" or p[suma+1]=="-":
-                    temporalUno = "_t1 = _t0 " + p[suma+1] + " " +  p[suma+2]
+                    temporalDos = "_t1 = _t0 " + p[suma+1] + " " +  p[suma+2]
     print(temporalDos)
 
 elif x==3:
