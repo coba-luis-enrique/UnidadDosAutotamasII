@@ -10,6 +10,7 @@ print("CASO 1: EJEMPLO  2 + 5 * y")
 print("CASO 2: EJEMPLO  a / a + b * b") 
 print("CASO 3: EJEMPLO  (a+ 2) / 3 + b")
 print("CASO 4: EJEMPLO  (a + 2) / (3 - b)")
+print("CASO 5: EJEMPLO  a * 2 - ((4 * y) + z)")
 x=int(input("Seleccione una opcion: "))
 
 # LOS CASOS SON SIN REGEX SOLO CON LISTAS, POR ESO, SE TRABAJA SOLO CON UN DIGITO O UN SOLO
@@ -198,7 +199,6 @@ elif x==4:
                 print("===============================================================================")
                 print("ERROR")
                 print("caso invalido")
-                print("Este caso se puede hacer con el caso 2, claro sin la multiplicacion ni division")
                 print("===============================================================================")
             break 
         else: 
@@ -213,7 +213,6 @@ elif x==4:
                             print("===============================================================================")
                             print("ERROR")
                             print("caso invalido")
-                            print("Este caso se puede hacer con el caso 2")
                             print("===============================================================================")
                         break
     print(temporalUno)
@@ -234,5 +233,96 @@ elif x==4:
     print(temporalDos)
 
 
+#================================================================================================================
+elif x==5:
+    p = []
+    S = []
+    TC= []
+    valor =str(input("ingrese la expresion \n"))
+    suma = -1
+    suma2 = -1
+    for i in valor:
+        if i != " ":
+            p.append(i)
+
+    #=============================================================================
+    for i in p: 
+        suma +=1
+        if i =="(" or i ==")":
+            if i =="(" or i ==")":
+                p.remove(p[suma-13])
+                TC.append(p[suma-12])
+                p.remove(p[suma-12])
+                TC.append(p[suma-11])
+                p.remove(p[suma-11])
+                TC.append(p[suma-10])
+                p.remove(p[suma-10])
+                TC.append(p[suma-9])
+                p.remove(p[suma-9])
+                TC.append(p[suma-8])
+                p.remove(p[suma-8])
+                TC.append(p[suma-7])
+                p.remove(p[suma-7])
+                TC.append(p[suma-6])
+                p.remove(p[suma-6])
+                p.remove(p[suma-5])
+                #TC = p[suma-12] + " " + p[suma-11] + " " + p[suma-10] + " " + p[suma-9] + " " + p[suma-8] + " " +  p[suma-7] + " " + p[suma-6]
+                break
+    #================================================================================
+    #print(p)
+    #print(TC)
+    #print(S)
 
 
+    temporalCero = ""
+    for x in TC: 
+        suma +=1
+        if x =="(" or x ==")":
+            if TC[0]=="(":
+                temporalCero = "_t0 = " + TC[suma2-6] + " " +  TC[suma2-5] + " " + TC[suma2-4] + " " + TC[suma2-3] + " " + TC[suma2-2]
+                #temporalCero = "_t0 = " + TC[suma2-4] + " " +  TC[suma2-3] + " " + TC[suma2-2] + " " + TC[suma2-1] + " " + TC[suma2]
+            else:
+                temporalCero = "_t0 = " + TC[suma2-4] + " " +  TC[suma2-3] + " " + TC[suma2-2] + " " + TC[suma2-1] + " " + TC[suma2]
+    print(temporalCero)
+    #=====================================================================================================
+    temporalUno = ""
+    for x in TC: 
+        suma2 +=1
+        if x =="+" or x =="-" or x =="*" or x =="/":
+            if TC[0]=="(":
+                temporalUno = "_t1 = t0 "  + TC[suma2-7] + " " +  TC[suma2-6]  
+            else:
+                temporalUno = "_t1 = t0 "  + TC[suma2-3] + " " +  TC[suma2-4]    
+
+            #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
+    print(temporalUno)
+
+    #============================================================================================
+    temporalDos = ""
+    for i in p: 
+        suma +=1
+        if p[0]=="-" or p[0]=="+" or p[0]=="*" or p[0]=="/":
+            temporalDos = "_t2 = " + p[1] +  " " + p[2] + " " + p[3]  
+            break
+        else:
+            temporalDos = "_t2 = " + " " +p[0]  + " " + p[3] + " " + p[1] 
+            break
+                #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
+    print(temporalDos)
+
+    temporalTres = ""
+    for i in p: 
+        suma +=1
+        if p[0]=="-" or p[0]=="+" or p[0]=="*" or p[0]=="/":
+            temporalTres = "_t3 = " + temporalUno[0:3] +  " " + p[0] + " " + temporalDos[0:3]
+            break
+        else:
+            temporalTres = "_t3 = " + temporalUno[0:3] +  " " + p[2] + " " + temporalDos[0:3]
+            break
+                #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
+    print(temporalTres)
+ 
+ #=====================================================================================================
+   
+
+            #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
