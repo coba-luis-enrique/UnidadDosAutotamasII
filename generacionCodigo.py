@@ -2,7 +2,10 @@ import re
 
 print("UNIDAD DOS AUTOMATAS")
 print("GENERACION DE CODIGO INTERMEDIO")
+print("==================================================================")
+print("==================IMPORTANTE LEER==========================")
 print("SOLO ACEPTA VALORES DE UN SOLO DIGITO O CARACTER..... SON LISTAS.")
+print("==================================================================")
 print("CASO 1: EJEMPLO  2 + 5 * y") 
 print("CASO 2: EJEMPLO  a / a + b * b") 
 print("CASO 3: EJEMPLO  (a+ 2) / 3 + b")
@@ -11,7 +14,7 @@ x=int(input("Seleccione una opcion: "))
 
 # LOS CASOS SON SIN REGEX SOLO CON LISTAS, POR ESO, SE TRABAJA SOLO CON UN DIGITO O UN SOLO
 #CARACTER
-
+#========================================================================================================
 if x==1:
     #CASO UNO SIN USO DE REGEX, CON LISTAS.
     p = []
@@ -41,7 +44,7 @@ if x==1:
             else:
                 temporalUno = "_t1 = "+ p[-1] + " "+ p[-2] + " " +"_t0"
     print(temporalUno)
-
+#=====================================================================================================
 elif x==2:
     p = []
     vs = []
@@ -110,7 +113,7 @@ elif x==2:
                 if p[suma+1] == "+" or p[suma+1]=="-":
                     temporalDos = "_t1 = _t0 " + p[suma+1] + " " +  p[suma+2]
     print(temporalDos)
-
+#======================================================================================================
 elif x==3:
     p = []
     vs = []
@@ -149,7 +152,87 @@ elif x==3:
     print(temporalUno)
     print(temporalDos)
    
-   
+#===========================================================================================================
+elif x==4:
+    p = []
+    vs = []
+    valor =str(input("ingrese la expresion \n"))
+    suma = -1
+    for i in valor:
+        if i != " ":
+            p.append(i)
+    temporalCero = ""
+    for i in p: # MULTIPLICACION O DIVISION
+        suma +=1
+        if i =="*" or i=="/":
+            #STRING TEMPORAL CERO
+            # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
+            temporalCero = "_t0 = " + p[suma-2] + " " + p[suma-1] + " " +  p[suma] + " " + p[suma+1] + " " + p[suma+2] 
+            p.remove(p[suma-1])
+            p.remove(p[suma])
+            p.remove(p[suma-1])
+            break 
+        else: 
+                if i == "+" or i=="-":
+                    temporalCero = "_t0 = " + p[suma-2] + " " + p[suma-1] + " " +  p[suma] + " " + p[suma+1] + " " + p[suma+2]
+                    p.remove(p[suma-1])
+                    p.remove(p[suma])
+                    p.remove(p[suma-1])
+                    break      
+    print(temporalCero)
+
+#============================================================================================================================
+    temporalUno = ""
+    for i in p: # MULTIPLICACION O DIVISION
+        suma +=1
+        if i =="*" or i=="/":
+            #STRING TEMPORAL CERO
+            # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
+            try:
+                temporalUno = "_t1 = " + p[suma-2] + " " + p[suma-1] + " " +  p[suma] + " " + p[suma+1] + " " + p[suma+2] 
+                p.remove(p[suma-1])
+                p.remove(p[suma])
+                p.remove(p[suma-1])
+            except:
+                IndexError: temporalUno = 'null'
+                print("===============================================================================")
+                print("ERROR")
+                print("caso invalido")
+                print("Este caso se puede hacer con el caso 2, claro sin la multiplicacion ni division")
+                print("===============================================================================")
+            break 
+        else: 
+                if i == "+" or i=="-":
+                        try:
+                            temporalUno = "_t1 = " + p[suma-2] + " " + p[suma-1] + " " +  p[suma] + " " + p[suma+1] + " " + p[suma+2] 
+                            p.remove(p[suma-1])
+                            p.remove(p[suma])
+                            p.remove(p[suma-1])
+                        except:
+                            IndexError: temporalUno = 'null'
+                            print("===============================================================================")
+                            print("ERROR")
+                            print("caso invalido")
+                            print("Este caso se puede hacer con el caso 2")
+                            print("===============================================================================")
+                        break
+    print(temporalUno)
+
+#=========================================================================================================================================
+    temporalDos = ""
+    for i in p: # MULTIPLICACION O DIVISION
+        suma +=1
+        if i =="*" or i=="/":
+            #STRING TEMPORAL CERO
+            # TEMPORALCERO = VARIABLE | OPERANDO 1 | VARIABLE
+            temporalDos = "_t2 = " + temporalCero[0:3] + " " +  p[suma-6] + " " + temporalUno[0:3]
+            break 
+        else: 
+                if i == "+" or i=="-":
+                    temporalDos = "_t2 = " + temporalCero[0:3] + " " +  p[suma-6] + " " + temporalUno[0:3]
+                    break      
+    print(temporalDos)
+
 
 
 
