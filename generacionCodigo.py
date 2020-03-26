@@ -4,7 +4,7 @@ print("UNIDAD DOS AUTOMATAS")
 print("GENERACION DE CODIGO INTERMEDIO")
 print("==================================================================")
 print("==================IMPORTANTE LEER==========================")
-print("SOLO ACEPTA VALORES DE UN SOLO DIGITO O CARACTER..... SON LISTAS Y PILAS EMPLEADOS.")
+print("SOLO ACEPTA VALORES DE UN SOLO DIGITO O CARACTER..... SON LISTAS. Y PILAS EMPLEADOS")
 print("==================================================================")
 print("CASO 1: EJEMPLO  2 + 5 * y") 
 print("CASO 2: EJEMPLO  a / a + b * b") 
@@ -296,7 +296,6 @@ elif x==5:
 
             #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
     print(temporalUno)
-
     #============================================================================================
     temporalDos = ""
     for i in p: 
@@ -305,8 +304,11 @@ elif x==5:
             temporalDos = "_t2 = " + p[1] +  " " + p[2] + " " + p[3]  
             break
         else:
-            temporalDos = "_t2 = " + " " +p[0]  + " " + p[3] + " " + p[1] 
-            break
+            if p[3]=="*" or p[3]=="/" or p[3]=="+" or p[3]=="-":
+                temporalDos = "_t2 = " + " " +p[0]  + " " + p[3] + " " + p[1] 
+            else:
+                temporalDos = "_t2 = " + " " +p[0]  + " " + p[1] + " " + p[2] 
+                break
                 #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
     print(temporalDos)
 
@@ -324,5 +326,3 @@ elif x==5:
  
  #=====================================================================================================
    
-
-            #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
