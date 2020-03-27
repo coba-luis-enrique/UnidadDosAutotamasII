@@ -305,10 +305,10 @@ elif x==5:
             break
         else:
             if p[3]=="*" or p[3]=="/" or p[3]=="+" or p[3]=="-":
-                temporalDos = "_t2 = " + " " +p[0]  + " " + p[3] + " " + p[1] 
-            else:
-                temporalDos = "_t2 = " + " " +p[0]  + " " + p[1] + " " + p[2] 
-                break
+                if p[2] =="*" or p[2]=="/" or p[2]=="+" or p[2]=="-":
+                    temporalDos = "_t2 = " + " " +p[0]  + " " + p[3] + " " + p[1] 
+                else:
+                    temporalDos = "_t2 = " + " " +p[0]  + " " + p[1] + " " + p[2]
                 #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
     print(temporalDos)
 
@@ -324,5 +324,4 @@ elif x==5:
                 #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
     print(temporalTres)
  
- #=====================================================================================================
    
