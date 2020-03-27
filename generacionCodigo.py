@@ -319,8 +319,12 @@ elif x==5:
             temporalTres = "_t3 = " + temporalUno[0:3] +  " " + p[0] + " " + temporalDos[0:3]
             break
         else:
-            temporalTres = "_t3 = " + temporalUno[0:3] +  " " + p[2] + " " + temporalDos[0:3]
-            break
+            if p[2] =="*" or p[2]=="/" or p[2]=="+" or p[2]=="-":
+                temporalTres = "_t3 = " + temporalUno[0:3] +  " " + p[2] + " " + temporalDos[0:3]
+                break
+            else:
+                temporalTres = "_t3 = " + temporalUno[0:3] +  " " + p[3] + " " + temporalDos[0:3]
+                break
                 #temporalCero = "_t1 = " + TC[suma-8] + " " +  TC[suma-7] + " " +  TC[suma-6] + " " +  TC[suma-5] + " " +  TC[suma-4]    
     print(temporalTres)
  
